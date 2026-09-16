@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh-Hant"><head>
+<html lang="zh-Hant">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="startup-ad-enabled" content="false">
 <meta name="theme-color" content="#68786d">
-<meta name="line-official-id" content="@539omyjt">
+<meta name="line-official-id" content="">
 <title>金登公司｜線上訂購</title>
 <style>
 :root{
@@ -178,7 +179,10 @@ input::placeholder,textarea::placeholder{
 </style>
 </head>
 <body>
-<div id="startupAd" class="startup-ad fade-out" role="dialog" aria-modal="true" aria-label="金登公司公告" style="display:none" onclick="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');" onpointerup="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');" ontouchend="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');" aria-hidden="true">
+<div id="startupAd" class="startup-ad" role="dialog" aria-modal="true" aria-label="金登公司公告" style="display:none"
+  onclick="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');"
+  onpointerup="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');"
+  ontouchend="this.style.display='none';this.classList.add('fade-out');this.setAttribute('aria-hidden','true');">
   <div class="startup-ad-card">
     <button id="startupAdClose" class="startup-ad-close" type="button" aria-label="關閉公告並進入線上訂購">×</button>
     <div id="adBadge" class="startup-ad-badge">簡建鴻 設計</div>
@@ -204,16 +208,16 @@ input::placeholder,textarea::placeholder{
 <header class="top">
   <div class="top-in">
     <div class="logo"><div class="logo-mark">GP</div><div class="logo-text"><div class="logo-title">金登公司 線上訂購</div><div class="logo-sub">汽車散熱片・蒸發器電子型錄</div></div></div>
-    <div class="top-actions"><button id="historyBtn" class="icon-btn" type="button">訂購記錄</button><button id="settingsBtn" class="icon-btn" type="button" style="display:none!important" aria-hidden="true" tabindex="-1">⚙ 後台管理</button><button id="topCart" class="cart-mini" type="button" style="touch-action: manipulation; user-select: none;">訂單 <span id="topCount">0</span></button></div>
+    <div class="top-actions"><button id="historyBtn" class="icon-btn" type="button">訂購記錄</button><button id="settingsBtn" class="icon-btn" type="button" style="display:none!important" aria-hidden="true" tabindex="-1">⚙ 後台管理</button><button id="topCart" class="cart-mini" type="button">訂單 <span id="topCount">0</span></button></div>
   </div>
 </header>
 
-<section class="hero" style="">
+<section class="hero">
   <div class="hero-in">
     <div id="heroSlogan" class="hero-copy">
       <h1>找得到，選得快，<br>訂單一次送出。</h1>
     </div>
-    <div class="hero-photo"><div class="hero-photo-card"><img id="heroImage" alt="產品寫真" style="display: none;"><div class="hero-overlay"><div id="heroBrandText" class="hero-overlay-brand" style="display: block;">Goldenp</div><div id="heroDescText" class="hero-overlay-desc" style="display: block;">ALFA 156</div><div id="heroCodeText" class="hero-overlay-code" style="display: block;">B1-00658</div><div id="heroLeftDimText" class="hero-overlay-leftdim" style="display: block;">340mm</div><div id="heroBottomDimText" class="hero-overlay-bottomdim" style="display: block;">575mm</div></div></div><div id="heroPhotoTag" class="hero-photo-tag" style="display: block;">原型錄照片同步使用</div></div>
+    <div class="hero-photo"><div class="hero-photo-card"><img id="heroImage" alt="產品寫真"><div class="hero-overlay"><div id="heroBrandText" class="hero-overlay-brand">Goldenp</div><div id="heroDescText" class="hero-overlay-desc">ALFA 156</div><div id="heroCodeText" class="hero-overlay-code">B1-00658</div><div id="heroLeftDimText" class="hero-overlay-leftdim">340mm</div><div id="heroBottomDimText" class="hero-overlay-bottomdim">575mm</div></div></div><div id="heroPhotoTag" class="hero-photo-tag">原型錄照片同步使用</div></div>
   </div>
 </section>
 
@@ -224,13 +228,13 @@ input::placeholder,textarea::placeholder{
   </section>
 
   <section id="brandMode" class="mode-panel active">
-    <div id="brandChoose" class="step-card" style="display: none;">
-      <div class="step-head"><h2>選擇廠牌</h2><span id="brandHint">共 59 個廠牌</span></div>
+    <div id="brandChoose" class="step-card">
+      <div class="step-head"><h2>選擇廠牌</h2><span id="brandHint"></span></div>
       <div id="brands" class="brand-grid"></div>
     </div>
-    <div id="brandSelected" class="brand-selected show">
+    <div id="brandSelected" class="brand-selected">
       <div class="step-card">
-        <div class="selected-brand-bar"><div class="selected-brand-name"><span id="selectedBrandText">黛娜Dyna</span><small>從此廠牌找車名並加入訂單</small></div><button id="changeBrand" class="change-brand" type="button">更換廠牌</button></div>
+        <div class="selected-brand-bar"><div class="selected-brand-name"><span id="selectedBrandText">已選廠牌</span><small>從此廠牌找車名並加入訂單</small></div><button id="changeBrand" class="change-brand" type="button">更換廠牌</button></div>
         <div class="brand-search-row">
           <div class="search-wrap"><input id="brandSearchInput" type="search" autocomplete="off" placeholder="在此廠牌內搜尋車名，例如 ALTIS、CAMRY"></div>
           <select id="brandKindFilter" class="filter-select"><option value="">全部產品</option><option value="散熱片">散熱片</option><option value="蒸發器">蒸發器</option></select>
@@ -251,9 +255,9 @@ input::placeholder,textarea::placeholder{
     </div>
   </section>
 
-  <div class="section-title"><h2 id="productTitle">黛娜Dyna｜選擇車名／產品</h2><span class="result-count" id="resultCount">找到 21 項</span></div>
+  <div class="section-title"><h2 id="productTitle">請先選擇廠牌</h2><span class="result-count" id="resultCount"></span></div>
   <section id="productGrid" class="product-grid"></section>
-  <button id="moreBtn" class="more" type="button" style="display: none;">載入更多產品</button>
+  <button id="moreBtn" class="more" type="button">載入更多產品</button>
 </main>
 
 <div class="floating-cart"><div class="fc-text">目前訂單 <span id="floatCount">0</span> 項<small>可新增、刪除與調整數量</small></div><button id="floatCartBtn" type="button">查看訂單</button></div>
@@ -313,7 +317,7 @@ input::placeholder,textarea::placeholder{
           <label class="full">公告第 3 行<input id="adminAdLine3"></label><label class="full">公告第 4 行<input id="adminAdLine4"></label>
           <label class="full">公告第 5 行<input id="adminAdLine5"></label><label class="full">底部提示<input id="adminAdFooter"></label>
         </div>
-        <div class="panel-actions"><button id="toggleAdEnabled" class="secondary" type="button">開場廣告：關閉</button><button id="applyAd" class="secondary" type="button">套用廣告修改</button><button id="previewAd" class="ghost" type="button">預覽開場廣告</button></div>
+        <div class="panel-actions"><button id="toggleAdEnabled" class="primary" type="button">開場廣告：關閉</button><button id="applyAd" class="secondary" type="button">套用廣告修改</button><button id="previewAd" class="ghost" type="button">預覽開場廣告</button></div>
       </section>
 
       <section class="admin-section">
@@ -367,7 +371,7 @@ input::placeholder,textarea::placeholder{
   </div>
 </div>
 
-<div id="toast" class="toast">已暫存 LINE 官方帳號 ID</div>
+<div id="toast" class="toast"></div>
 <footer>金登公司電子型錄訂購系統 · 產品內容依原始型錄資料建立</footer>
 
 <script id="heroConfigData" type="application/json">{"image":"","brandText":"Goldenp","descText":"ALFA 156","codeText":"B1-00658","leftDimText":"340mm","bottomDimText":"575mm","tagText":"原型錄照片同步使用"}</script>
@@ -534,7 +538,6 @@ function buildOrderText(){
     '──────'
   ];
   es.forEach(({p,q},i)=>{
-    lines.push(`${i+1}. ${p.brand}`);
     lines.push(`車名：${p.desc||p.title}`);
     lines.push(`號碼：${p.code}`);
     lines.push(`數量：${q}`);
@@ -833,5 +836,5 @@ $('#exportConfigured').onclick=exportConfigured;
 
 restoreCustomerProfile();renderBrands();updateModeUI();search();renderCartCounts();
 </script>
-
-</body></html>
+</body>
+</html>
