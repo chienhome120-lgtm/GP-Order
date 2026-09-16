@@ -50,7 +50,7 @@ button{cursor:pointer}
 .order-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:2px 0 14px}
 .method-btn{display:flex;align-items:center;gap:0;min-height:76px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:13px 15px;text-align:left;color:var(--ink);box-shadow:var(--shadow2);cursor:pointer}
 .method-btn .method-no{display:flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px;border-radius:14px;background:#eee9df;color:#766758;font-size:19px;font-weight:900}
-.method-btn b{display:block;font-size:16px}.method-btn small{display:block;margin-top:3px;color:var(--muted);font-size:11.5px;line-height:1.4}
+.method-btn b{display:block;font-size:19px}.method-btn small{display:block;margin-top:3px;color:var(--muted);font-size:11.5px;line-height:1.4}
 .method-btn.active{background:linear-gradient(145deg,#66776b,#839286);border-color:#6f7f73;color:#fff}
 .method-btn.active .method-no{background:rgba(255,255,255,.18);color:#fff}.method-btn.active small{color:rgba(255,255,255,.82)}
 .mode-panel{display:none}.mode-panel.active{display:block}
@@ -118,7 +118,7 @@ button{cursor:pointer}
 footer{padding:26px 14px 100px;text-align:center;color:var(--muted);font-size:12px}
 @media(max-width:920px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-in{grid-template-columns:1fr .72fr}.hero-copy{padding:28px 24px}}
 @media(max-width:820px){.brand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:650px){.order-methods{gap:7px}.method-btn{min-height:70px;padding:10px}.method-btn .method-no{flex-basis:36px;width:36px;height:36px;font-size:16px}.method-btn b{font-size:14px}.method-btn small{font-size:10.5px}.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.brand-choice{padding:10px 6px;font-size:13px}.brand-search-row{grid-template-columns:1fr}.step-card{padding:10px;border-radius:16px}}
+@media(max-width:650px){.order-methods{gap:7px}.method-btn{min-height:70px;padding:10px}.method-btn .method-no{flex-basis:36px;width:36px;height:36px;font-size:16px}.method-btn b{font-size:17px}.method-btn small{font-size:10.5px}.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.brand-choice{padding:10px 6px;font-size:13px}.brand-search-row{grid-template-columns:1fr}.step-card{padding:10px;border-radius:16px}}
 @media(max-width:650px){
   .top-in{padding:8px 9px}.logo-sub{display:none}.icon-btn{padding:7px 8px;font-size:12px}.cart-mini{padding:8px 9px;font-size:12px}
   .hero{width:calc(100% - 14px);margin-top:8px;border-radius:20px;min-height:auto}.hero-in{grid-template-columns:1fr}.hero-copy{padding:24px 20px 20px}.hero-photo{min-height:180px;padding:0 20px 22px}.hero-photo-card{width:75%;max-width:310px;transform:rotate(1deg)}.hero-photo-tag{right:16px;bottom:12px}
@@ -219,11 +219,11 @@ input::placeholder,textarea::placeholder{
 
 <main class="shell">
   <section class="order-methods" aria-label="下單方式">
-    <button id="brandModeBtn" class="method-btn active" data-mode="brand" type="button"><span><b>依廠牌選車</b><small>可直接從廠牌內找車名並加入訂單</small></span></button>
-    <button id="keywordModeBtn" class="method-btn" data-mode="keyword" type="button"><span><b>關鍵字查詢</b><small>可直接搜尋車名、車型或萬在編號</small></span></button>
+    <button id="brandModeBtn" class="method-btn" data-mode="brand" type="button"><span><b>依廠牌選車</b><small>可直接從廠牌內找車名並加入訂單</small></span></button>
+    <button id="keywordModeBtn" class="method-btn active" data-mode="keyword" type="button"><span><b>關鍵字查詢</b><small>可直接搜尋車名、車型或萬在編號</small></span></button>
   </section>
 
-  <section id="brandMode" class="mode-panel active">
+  <section id="brandMode" class="mode-panel">
     <div id="brandChoose" class="step-card" style="display: block;">
       <div class="step-head"><h2>選擇廠牌</h2><span id="brandHint">共 59 個廠牌</span></div>
       <div id="brands" class="brand-grid"></div>
@@ -240,7 +240,7 @@ input::placeholder,textarea::placeholder{
     </div>
   </section>
 
-  <section id="keywordMode" class="mode-panel">
+  <section id="keywordMode" class="mode-panel active">
     <div class="search-panel">
       <div class="step-head"><h2>關鍵字查詢</h2><span>跨全部廠牌搜尋</span></div>
       <div class="search-row">
@@ -251,7 +251,7 @@ input::placeholder,textarea::placeholder{
     </div>
   </section>
 
-  <div class="section-title"><h2 id="productTitle">請先選擇廠牌</h2><span class="result-count" id="resultCount"></span></div>
+  <div class="section-title"><h2 id="productTitle">關鍵字搜尋結果</h2><span class="result-count" id="resultCount"></span></div>
   <section id="productGrid" class="product-grid"></section>
   <button id="moreBtn" class="more" type="button" style="display: none;">載入更多產品</button>
 </main>
@@ -417,7 +417,7 @@ function renderOrderHistory(){
 }
 function showSuccessAd(){const ad=$('#successAd');ad.classList.remove('fade-out')}
 function hideSuccessAd(){const ad=$('#successAd');ad.classList.add('fade-out')}
-let cart=loadCart(),selectedBrand='',activeMode='brand',visible=PAGE_SIZE,filtered=[];
+let cart=loadCart(),selectedBrand='',activeMode='keyword',visible=PAGE_SIZE,filtered=[];
 let PRODUCT_BY_ID=new Map(),brands=[],brandCount={};
 function rebuildIndexes(){
   PRODUCT_BY_ID=new Map(PRODUCTS.map(p=>[String(p.id),p]));
