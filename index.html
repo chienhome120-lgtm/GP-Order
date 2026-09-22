@@ -66,6 +66,8 @@ button{cursor:pointer}
 .search-wrap{position:relative}.search-wrap:before{content:"⌕";position:absolute;left:14px;top:8px;font-size:27px;color:#69766d}
 .search-wrap input,.filter-select{width:100%;height:48px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);outline:none}
 .search-wrap input{padding:0 14px 0 45px;font-size:16px}
+#searchInput{border:2px solid #b8aa9b;background:#ece5dc;box-shadow:0 2px 8px rgba(86,72,59,.10)}
+#searchInput:focus{border-color:#7f8d82;box-shadow:0 0 0 3px rgba(111,127,115,.18),0 2px 8px rgba(86,72,59,.10)}
 .filter-select{padding:0 12px}
 .search-wrap input:focus,.filter-select:focus{box-shadow:0 0 0 3px rgba(111,127,115,.14);border-color:#9aa69c}
 .help{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}
@@ -104,7 +106,7 @@ button{cursor:pointer}
 .cart-list{display:grid;gap:9px}
 .cart-item{display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px;border:1px solid var(--line);border-radius:15px;background:#fff}
 .cart-thumb{width:88px;height:72px;object-fit:contain;border-radius:10px;border:1px solid var(--line);background:#f4f0e9}
-.cart-brand{font-size:11px;color:var(--muted);font-weight:900}.cart-title{font-size:14px;font-weight:900;line-height:1.4}.cart-code{margin-top:3px;font-size:12px;color:#786b5c;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.cart-brand{font-size:11px;color:var(--muted);font-weight:900}.cart-title{font-size:14px;font-weight:900;line-height:1.4}.cart-code{margin-top:3px;font-size:14px;font-weight:900;line-height:1.4;color:#786b5c;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
 .qty{display:flex;align-items:center;gap:5px}.qty button{width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font-weight:900}.qty b{min-width:24px;text-align:center}.remove{margin-top:5px;border:0;background:transparent;color:#a05f62;font-size:11px;text-decoration:underline}
 .customer{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
 .customer label{font-size:12px;font-weight:900;color:#59615b}.customer input,.customer textarea{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 11px;outline:none;color:var(--ink)}
@@ -364,7 +366,7 @@ input::placeholder,textarea::placeholder{
           <label class="file-label-admin">匯入產品備份<input id="adminImportBackup" type="file" accept="application/json,.json"></label>
           <button id="adminChangePassword" class="ghost" type="button">修改後台密碼</button>
         </div>
-        <div id="adminMsg" class="admin-msg">主畫面設定已儲存。現在匯出完整 HTML，重新開啟後會保留最新文字與圖片。</div>
+        <div id="adminMsg" class="admin-msg"></div>
       </section>
     </div>
   </div>
